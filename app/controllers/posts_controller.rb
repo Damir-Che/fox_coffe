@@ -1,5 +1,12 @@
 class PostsController < ApplicationController
+
   before_action :set_post, only: %i[ show edit update destroy ]
+
+  def massages_telegram
+    response = HTTP.post('https://api.telegram.org/bot5356889131:AAEY-Esd6c2u6kK8Z8iq_jTL0PehQ3BWI1w/sendMessage?chat_id=1424694609&text=helllllo')
+
+    redirect_to posts_path, notice: 'success'
+  end
 
   # GET /posts or /posts.json
   def index
